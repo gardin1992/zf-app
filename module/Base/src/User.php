@@ -2,4 +2,7 @@
 
 namespace Base;
 
-class Module {}
+class User
+{
+
+}
