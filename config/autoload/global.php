@@ -13,4 +13,7 @@
 
 return [
     // ...
+    'db' => [
+        'driver' => 'Pgsql'
+    ]
 ];

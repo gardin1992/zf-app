@@ -17,7 +17,10 @@ class IndexController extends AbstractActionController
     {
 
         $user = new User();
-        
+        $ref = $user->getUserById(5);
+
+        echo $ref . "<br>";
+
         return new ViewModel();
     }
 }

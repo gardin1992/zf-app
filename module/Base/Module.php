@@ -2,7 +2,12 @@
 
 namespace Base;
 
+use Base\User\MemoryIdentityMap;
+use Base\User\PostgresDataMapper;
+use Base\User\Repository as UserRepository;
+use Base\User\RepositoryFactory;
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\ServiceManager\Factory\InvokableFactory;
 
 class Module implements ServiceProviderInterface
 {
@@ -14,6 +19,12 @@ class Module implements ServiceProviderInterface
      */
     public function getServiceConfig()
     {
-        return [];
+        return [
+            'factories' => [
+                PostgresDataMapper::class => InvokableFactory::class,
+                MemoryIdentityMap::class => InvokableFactory::class,
+                UserRepository::class => RepositoryFactory::class
+            ]
+        ];
     }
 }
