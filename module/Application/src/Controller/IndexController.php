@@ -8,6 +8,7 @@
 namespace Application\Controller;
 
 use Base\User;
+use Zend\Db\Adapter\Adapter;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 

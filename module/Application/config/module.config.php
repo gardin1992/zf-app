@@ -13,6 +13,13 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 
 use Admin\Controller\AdminController;
 
+$db = [
+    'database' => 'zf3',
+    'username' => 'root',
+    'password' => 'root',
+    'hostname' => 'localhost',
+];
+
 return [
     'router' => [
         'routes' => [
@@ -57,7 +64,7 @@ return [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
             Controller\AdminController::class => InvokableFactory::class,
-            AdminController::class => InvokableFactory::class
+//            AdminController::class => InvokableFactory::class
         ],
     ],
     'view_manager' => [
@@ -76,4 +83,5 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+
 ];
