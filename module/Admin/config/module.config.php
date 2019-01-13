@@ -17,58 +17,37 @@ return [
     'router' => [
         'routes' => [
 
-            'home' => [
+            'user' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/',
+                    'route'    => '/admin/user',
                     'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        'controller' => AdminController::class,
+                        'action'     => 'user',
                     ],
                 ],
             ],
-
-            'admin' => [
+            'users' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/admin',
+                    'route'    => '/admin/users',
                     'defaults' => [
-                        'controller' => Controller\AdminController::class,
-                        'action'     => 'index',
+                        'controller' => AdminController::class,
+                        'action'     => 'users',
                     ],
                 ],
             ],
 
-
-
-            'application' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route'    => '/application[/:action]',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-            ],
         ],
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
-            Controller\AdminController::class => InvokableFactory::class,
-            AdminController::class => InvokableFactory::class
         ],
     ],
     'view_manager' => [
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+            'admin/index/index' => __DIR__ . '/../view/admin/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],
