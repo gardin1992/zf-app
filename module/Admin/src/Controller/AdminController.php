@@ -35,20 +35,15 @@ class AdminController extends AbstractActionController
 
     public function usersAction() {
 
-        $env = getenv('APP_ENV') ?: 'production';
-
-        $table = $this->table->getTable();
         $rowset = $this->table->select();
 
+        echo $rowset->count() . "<br>";
+
         foreach ($rowset as $projectRow) {
-            echo $projectRow['name'] . PHP_EOL;
+            echo $projectRow->getName() . PHP_EOL;
         }
 
 //        $users = $this->table->fetchAll();
-
-        echo '<pre>';
-        print_r($table);
-        echo '</pre>';
         return new ViewModel();
 
     }

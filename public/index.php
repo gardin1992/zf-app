@@ -1,17 +1,5 @@
 <?php
 
-
-$servername = "127.0.0.1";
-$username = "user";
-$password = "test";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password);
-
-echo "Connected to MySQL<br />";
-
-die();
-
 use Zend\Mvc\Application;
 use Zend\Stdlib\ArrayUtils;
 

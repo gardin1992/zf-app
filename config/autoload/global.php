@@ -16,7 +16,7 @@ return [
     'db' => [
         //'driver' => 'Pgsql',
         'driver'         => 'Pdo',
-        'dsn'            => 'mysql:dbname=myDb;host=127.0.0.1',
+        'dsn'            => 'mysql:dbname=myDb;host=db',
         'username'       =>'user',
         'password'      =>'test',
         'driver_options' => array(
