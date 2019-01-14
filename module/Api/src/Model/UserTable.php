@@ -1,6 +1,7 @@
 <?php
 
-namespace Admin\Model;
+namespace Api\Model;
+
 
 use Zend\Db\TableGateway\TableGatewayInterface;
 
@@ -11,10 +12,9 @@ class UserTable
 
     public function __construct(TableGatewayInterface $tableGateway)
     {
+
         $this->tableGateway = $tableGateway;
-
     }
-
 
     public function fetchAll()
     {
@@ -25,20 +25,18 @@ class UserTable
     {
 
         $current = $this->tableGateway->select([
-            'id' => $id
+            'id_user' => $id
         ]);
 
         return $current->current();
-
     }
 
     public function deleteUser(int $id)
     {
 
         $this->tableGateway->delete([
-            'id' => $id
+            'id_user' => $id
         ]);
-
     }
 
     public function saveUser(User $user)
@@ -49,18 +47,15 @@ class UserTable
         ];
 
         //For update user
-        if ($user->getId()) {
+        if ($user->getIdUser()) {
 
             $this->tableGateway->update($data, [
-                'id' => $user->getId()
+                'id_user' => $user->getIdUser()
             ]);
 
             //For insert new user
         } else {
             $this->tableGateway->insert($data);
         }
-
-
     }
-
 }

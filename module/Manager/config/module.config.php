@@ -5,49 +5,59 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application;
+namespace Manager;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
-use Admin\Controller\AdminController;
-
 return [
     'router' => [
         'routes' => [
 
-            'user' => [
+            'manager' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/admin/user',
+                    'route'    => '/manager',
                     'defaults' => [
-                        'controller' => AdminController::class,
-                        'action'     => 'user',
+                        'controller' => Controller\IndexController::class,
+                        'action'     => 'index',
                     ],
                 ],
             ],
-            'users' => [
+            'manager.users' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/admin/users',
+                    'route'    => '/manager/users',
                     'defaults' => [
-                        'controller' => AdminController::class,
-                        'action'     => 'users',
+                        'controller' => Controller\UsersController::class,
+                        'action'     => 'index',
                     ],
                 ],
             ],
 
+//            'application' => [
+//                'type'    => Segment::class,
+//                'options' => [
+//                    'route'    => '/application[/:action]',
+//                    'defaults' => [
+//                        'controller' => Controller\IndexController::class,
+//                        'action'     => 'index',
+//                    ],
+//                ],
+//            ],
         ],
     ],
     'controllers' => [
         'factories' => [
+            Controller\IndexController::class => InvokableFactory::class,
+//            Controller\UsersController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
         'template_map' => [
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'admin/index/index' => __DIR__ . '/../view/admin/index/index.phtml',
+            'manager/index/index' => __DIR__ . '/../view/manager/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ],

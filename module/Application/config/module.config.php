@@ -35,18 +35,6 @@ return [
                 ],
             ],
 
-            'admin' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route'    => '/admin',
-                    'defaults' => [
-                        'controller' => Controller\AdminController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-            ],
-
-
 
             'application' => [
                 'type'    => Segment::class,

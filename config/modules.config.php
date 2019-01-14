@@ -18,7 +18,8 @@ return [
     'Zend\Cache',
     'Zend\Router',
     'Zend\Validator',
+    'Manager',
     'Base',
-    'Admin',
+    'Api',
     'Application'
 ];
