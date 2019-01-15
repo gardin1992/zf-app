@@ -1,5 +1,9 @@
 <h1>All users</h1>
 
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" id="btnAdd">Add</button>
+
 <table class="table">
 
     <thead>
@@ -10,25 +14,9 @@
     </tr>
     </thead>
 
-    <tbody>
-
-    <?php foreach ($users as $user): ?>
-    <tr>
-        <td><?= $user->getIdUser()?></td>
-        <td><?= $user->getName()?></td>
-        <td><button class="btn btn-action" data-name="btnShow" data-id="<?= $user->getIdUser()?>" >Show</button><td>
-        <td><button class="btn btn-action" data-name="btnEdit" data-id="<?= $user->getIdUser()?>" >Edit</button><td>
-        <td><button class="btn btn-action" data-name="btnDelete" data-id="<?= $user->getIdUser()?>" >Delete</button><td>
-    </tr>
-    <?php endforeach; ?>
-
+    <tbody id="tableList">
     </tbody>
 </table>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -43,61 +31,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" id="modalBtnSave">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-
-    $(document).ready(function () {
-
-        $.get('/api/users', function (res) {
-
-            console.log(res);
-        });
-
-        var $modal = $('#myModal');
-
-        function onBtnShow(idUser) {
-
-
-        }
-
-        function onBtnEdit(idUser) {
-
-        }
-
-        function onBtnDelete(idUser) {
-
-        }
-
-
-        $('.btn-action').on('click', function(e) {
-
-            e.stopPropagation();
-
-            var dataName = $(this).data('name');
-            var idUser = $(this).data('id');
-
-            $modal.modal('show');
-
-            if (dataName == 'btnShow') {
-
-                onBtnShow(idUser);
-            } else if (dataName == 'btnEdit') {
-
-                onBtnEdit(idUser);
-            } else if (dataName == 'btnDelete') {
-
-                onBtnDelete(idUser);
-            }
-
-
-
-            console.log();
-        });
-    });
-
-</script>
+<?php $this->headScript()->appendFile('/js/manager/users.js'); ?>

@@ -62,6 +62,8 @@ class UsersController extends AbstractRestfulController
     public function create($data)
     {
 
+        $data['password'] = '123456';
+
         if ($this->_isValidateData($data)) {
 
             $user = new User();

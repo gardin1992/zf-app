@@ -22,10 +22,6 @@ class UsersController extends AbstractActionController
     public function indexAction()
     {
 
-        $users = $this->table->fetchAll();
-
-        return new ViewModel([
-            'users' => $users
-        ]);
+        return new ViewModel();
     }
 }
