@@ -53,6 +53,11 @@
 
     $(document).ready(function () {
 
+        $.get('/api/users', function (res) {
+
+            console.log(res);
+        });
+
         var $modal = $('#myModal');
 
         function onBtnShow(idUser) {

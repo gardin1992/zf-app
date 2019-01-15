@@ -11,15 +11,6 @@ use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
-use Admin\Controller\AdminController;
-
-$db = [
-    'database' => 'zf3',
-    'username' => 'root',
-    'password' => 'root',
-    'hostname' => 'localhost',
-];
-
 return [
     'router' => [
         'routes' => [
@@ -34,7 +25,6 @@ return [
                     ],
                 ],
             ],
-
 
             'application' => [
                 'type'    => Segment::class,
@@ -51,8 +41,6 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
-            Controller\AdminController::class => InvokableFactory::class,
-//            AdminController::class => InvokableFactory::class
         ],
     ],
     'view_manager' => [

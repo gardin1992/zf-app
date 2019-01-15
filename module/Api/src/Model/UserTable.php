@@ -21,6 +21,10 @@ class UserTable
         return $this->tableGateway->select();
     }
 
+    /**
+     * @param int $id
+     * @return User
+     */
     public function getUser(int $id)
     {
 
@@ -43,7 +47,8 @@ class UserTable
     {
         $data = [
             'name' => $user->getName(),
-            'email' => $user->getEmail()
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword()
         ];
 
         //For update user

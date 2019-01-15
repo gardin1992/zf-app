@@ -7,8 +7,6 @@
 
 namespace Application\Controller;
 
-use Base\User;
-use Zend\Db\Adapter\Adapter;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -16,11 +14,6 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-
-        $user = new User();
-        $ref = $user->getUserById(5);
-
-        echo $ref . "<br>";
 
         return new ViewModel();
     }

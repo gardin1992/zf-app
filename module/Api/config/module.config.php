@@ -23,13 +23,13 @@ return [
             'api.users' => array(
                 'type' => 'Segment',
                 'options' => array(
-                    'route' => '/api/users[.:format][/:id]',
+                    'route' => '/api/users[/:id][/]',
                     'constraints' => array(
-                        'format' => '(json)',
+//                        'format' => '(json)',
                     ),
                     'defaults' => array(
                         'controller' => Controller\UsersController::class,
-                        'format' => 'json',
+//                        'format' => 'json',
                     ),
                 ),
             ),
